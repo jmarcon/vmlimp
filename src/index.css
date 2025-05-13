@@ -81,3 +81,40 @@
 html {
   scroll-behavior: smooth;
 }
+
+.theme-switch-thumb[aria-hidden="true"] {
+    transform: translateX(0rem);
+}
+.dark .theme-switch-thumb[aria-hidden="true"],
+button[aria-checked="true"] .theme-switch-thumb {
+    transform: translateX(1.25rem); /* 20px for a 44px wide switch with 2px border and 20px thumb */
+}
+
+button[role="switch"][aria-checked="true"] {
+    @apply bg-primary;
+}
+button[role="switch"][aria-checked="false"] {
+    @apply bg-input;
+}
+
+.toast {
+  @apply bg-foreground text-background p-4 rounded-md shadow-lg max-w-sm transition-all duration-300 ease-in-out opacity-0 transform translate-y-2;
+}
+.toast.show {
+  @apply opacity-100 translate-y-0;
+}
+.toast.success {
+  @apply bg-green-600 text-white;
+}
+.toast.error {
+  @apply bg-destructive text-destructive-foreground;
+}
+
+.toast-title {
+  @apply font-semibold;
+}
+.toast-description {
+  @apply text-sm;
+}
+
+/* Add a favicon.svg for the example */
