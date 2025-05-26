@@ -56,65 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.addEventListener('scroll', highlightMenu);
     highlightMenu();
-
-    // Carrossel simples "Nosso Trabalho"
-    const carousel = document.getElementById('carousel-trabalho');
-    if (!carousel) return;
-    const imagensWrapper = carousel.querySelector('.carousel-imagens') || carousel.querySelector('div');
-    if (!imagensWrapper) return;
-    const imagens = Array.from(imagensWrapper.querySelectorAll('img'));
-    if (imagens.length === 0) return;
-    const prevBtn = document.getElementById('carousel-prev');
-    const nextBtn = document.getElementById('carousel-next');
-    const indicatorsContainer = document.getElementById('carousel-indicators');
-    let atual = 0;
-
-    // Cria indicadores
-    indicatorsContainer.innerHTML = '';
-    imagens.forEach((_, idx) => {
-        const dot = document.createElement('button');
-        dot.className = 'w-3 h-3 rounded-full bg-gray-300 transition-all';
-        if (idx === 0) dot.classList.add('bg-blue-600', 'dark:bg-[#4fc3f7]');
-        dot.addEventListener('click', () => irPara(idx));
-        indicatorsContainer.appendChild(dot);
-    });
-
-    function atualizar() {
-        imagens.forEach((img, idx) => {
-            img.classList.toggle('ativo', idx === atual);
-        });
-        Array.from(indicatorsContainer.children).forEach((dot, idx) => {
-            dot.className = 'w-3 h-3 rounded-full bg-gray-300 transition-all';
-            if (idx === atual) dot.classList.add('bg-blue-600', 'dark:bg-[#4fc3f7]');
-        });
-    }
-    function irPara(idx) {
-        atual = idx;
-        atualizar();
-    }
-    if (prevBtn) {
-        prevBtn.onclick = () => {
-            atual = (atual - 1 + imagens.length) % imagens.length;
-            atualizar();
-        };
-    }
-    if (nextBtn) {
-        nextBtn.onclick = () => {
-            atual = (atual + 1) % imagens.length;
-            atualizar();
-        };
-    }
-    // Swipe para mobile
-    let startX = 0;
-    imagensWrapper.addEventListener('touchstart', e => {
-        startX = e.touches[0].clientX;
-    });
-    imagensWrapper.addEventListener('touchend', e => {
-        const endX = e.changedTouches[0].clientX;
-        if (endX < startX - 40) nextBtn && nextBtn.click();
-        if (endX > startX + 40) prevBtn && prevBtn.click();
-    });
-    atualizar();
 });
 
 // Scroll suave para navegação interna
@@ -130,20 +71,6 @@ function scrollToSection(event) {
         }
     }
 }
-
-// Animação suave ao rolar (fade-in-up)
-function animateOnScroll() {
-    const elements = document.querySelectorAll('.fade-in-up');
-    const windowHeight = window.innerHeight;
-    elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < windowHeight - 60) {
-            el.classList.add('animated');
-        }
-    });
-}
-window.addEventListener('scroll', animateOnScroll);
-document.addEventListener('DOMContentLoaded', animateOnScroll);
 
 // Efeito de transparência no menu fixo ao rolar
 function toggleNavbarScrolled() {

@@ -18,7 +18,60 @@
     --color-navbar-link-hover: #4fc3f7;
 }
 
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
+    @keyframes fade-in {
+        to {
+            scale: 1;
+            opacity: 1;
+        }
+    }
+
+    main section {
+        scale: 0.8;
+        opacity: 0;
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range: entry;
+    }
+
+
+
+div.gallery {
+    background-color: var(--color-bg);
+}
+
+div.gallery div.gallery-cell {
+    opacity: 0.5;
+    width: max(65dvw, 300px);
+    height: max(50dvh, 300px);
+    margin-right: 1rem;
+    background-color: var(--color-navbar);
+    counter-increment: gallery-cell;
+}
+
+div.gallery div.gallery-cell.is-selected {
+    opacity: 1;
+}
+
+.flickity-page-dots {
+    bottom: 1rem;
+}
+/* white circles */
+.flickity-page-dots .dot {
+    width: 12px;
+    height: 12px;
+    opacity: 1;
+    background: transparent;
+    border: 2px solid white;
+}
+/* fill-in selected dot */
+.flickity-page-dots .dot.is-selected {
+    background: white;
+}
 
 body {
     background: var(--color-bg);
@@ -467,9 +520,7 @@ footer .fas {
 }
 
 .fade-in-up {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .animated {
@@ -525,7 +576,7 @@ footer .fas {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(120deg, rgba(10, 34, 64, 0.82) 0%, rgba(25, 118, 210, 0.55) 100%), url('style/images/moto.png') center center/cover no-repeat;
+    background: linear-gradient(120deg, rgba(10, 34, 64, 0.82) 0%, rgba(25, 118, 210, 0.55) 100%), url('images/moto.png') center center/cover no-repeat;
     opacity: 1;
     z-index: -1;
     transition: background 0.4s;

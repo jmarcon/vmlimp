@@ -26,8 +26,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="style/index.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <link rel="icon" href="style/icons/favicon.ico" type="image/x-icon">
 
     <script type="application/ld+json">
     {
@@ -77,6 +79,8 @@
     }
     </script>
     <script async src="behavior/index.js" defer></script>
+    <script async src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js" defer></script>
+
 </head>
 
 <body class="font-sans antialiased">
@@ -200,39 +204,27 @@
             </div>
             <div class="relative max-w-3xl mx-auto">
                 <div id="carousel-trabalho" class="relative w-full max-w-3xl mx-auto">
-                    <div class="carousel-imagens">
-                        <img src="style/images/work/1.avif" alt="Trabalho 1" class="w-full object-cover">
-                        <img src="style/images/work/2.jpg" alt="Trabalho 2" class="w-full object-cover">
-                        <img src="style/images/work/3.avif" alt="Trabalho 3" class="w-full object-cover">
-                        <img src="style/images/work/4.avif" alt="Trabalho 4" class="w-full object-cover">
-                        <img src="style/images/work/5.avif" alt="Trabalho 5" class="w-full object-cover">
-                        <img src="style/images/work/6.avif" alt="Trabalho 6" class="w-full object-cover">
-                        <img src="style/images/work/7.avif" alt="Trabalho 7" class="w-full object-cover">
-                        <img src="style/images/work/8.avif" alt="Trabalho 8" class="w-full object-cover">
-                        <img src="style/images/work/9.avif" alt="Trabalho 9" class="w-full object-cover">
-                        <img src="style/images/work/10.avif" alt="Trabalho 10" class="w-full object-cover">
-                        <img src="style/images/work/11.avif" alt="Trabalho 11" class="w-full object-cover">
-                        <img src="style/images/work/12.avif" alt="Trabalho 12" class="w-full object-cover">
-                        <img src="style/images/work/13.avif" alt="Trabalho 13" class="w-full object-cover">
-                        <img src="style/images/work/14.avif" alt="Trabalho 14" class="w-full object-cover">
-                        <img src="style/images/work/15.avif" alt="Trabalho 15" class="w-full object-cover">
-                        <img src="style/images/work/16.avif" alt="Trabalho 16" class="w-full object-cover">
-                        <img src="style/images/work/17.avif" alt="Trabalho 17" class="w-full object-cover">
-                        <img src="style/images/work/18.avif" alt="Trabalho 18" class="w-full object-cover">
+                    <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true, "draggable": true, "autoplay": true, "lazyload": 2, "selectedAttraction": 0.01, "friction": 0.15 }'>
+                        <div class="gallery-cell"><img src="style/images/work/1.avif" alt="Trabalho 1" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/2.jpg" alt="Trabalho 2" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/3.avif" alt="Trabalho 3" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/4.avif" alt="Trabalho 4" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/5.avif" alt="Trabalho 5" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/6.avif" alt="Trabalho 6" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/7.avif" alt="Trabalho 7" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/8.avif" alt="Trabalho 8" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/9.avif" alt="Trabalho 9" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/10.avif" alt="Trabalho 10" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/11.avif" alt="Trabalho 11" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/12.avif" alt="Trabalho 12" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/13.avif" alt="Trabalho 13" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/14.avif" alt="Trabalho 14" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/15.avif" alt="Trabalho 15" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/16.avif" alt="Trabalho 16" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/17.avif" alt="Trabalho 17" class="w-full object-cover carousel-cell-image"></div>
+                        <div class="gallery-cell"><img src="style/images/work/18.avif" alt="Trabalho 18" class="w-full object-cover carousel-cell-image"></div>
                     </div>
                     <!-- Botões de navegação -->
-                    <button id="carousel-prev"
-                        class="absolute left-2 top-1/2 -translate-y-1/2 bg-azul text-white dark:bg-[#232f47] dark:text-[#e3eafc] rounded-full p-2 shadow hover:bg-blue-700 transition z-10">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button id="carousel-next"
-                        class="absolute right-2 top-1/2 -translate-y-1/2 bg-azul text-white dark:bg-[#232f47] dark:text-[#e3eafc] rounded-full p-2 shadow hover:bg-blue-700 transition z-10">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                    <!-- Indicadores -->
-                    <div id="carousel-indicators" style="display: none;" class="flex justify-center gap-2 mt-4">
-                        <!-- Indicadores serão inseridos via JS -->
-                    </div>
                 </div>
             </div>
         </section>
