@@ -180,6 +180,11 @@ body {
 #theme-toggle {
     background: var(--color-secondary);
     color: var(--color-navbar-link);
+    min-width: 2rem;
+    min-height: 2rem;
+    display: block;
+    text-align: center;
+    vertical-align: center;
 }
 
 #theme-toggle:hover {

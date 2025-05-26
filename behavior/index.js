@@ -63,10 +63,10 @@ function applyTheme(theme) {
     const html = document.documentElement;
     if (theme === 'dark') {
         html.classList.add('dark');
-        document.getElementById('theme-icon').className = 'fas fa-sun';
+        document.getElementById('theme-icon').className = 'fa-regular fa-sun';
     } else {
         html.classList.remove('dark');
-        document.getElementById('theme-icon').className = 'fas fa-moon';
+        document.getElementById('theme-icon').className = 'fa-regular fa-moon';
     }
 }
 
@@ -81,12 +81,13 @@ function getPreferredTheme() {
 const theme = getPreferredTheme();
 applyTheme(theme);
 
-document.getElementById('theme-toggle').addEventListener('click', () => {
+
+function themeToggle() {
     const current = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
     const next = current === 'dark' ? 'light' : 'dark';
     localStorage.setItem('theme', next);
     applyTheme(next);
-});
+}
 
 // Scroll suave
 document.querySelectorAll('nav a[href^="#"]').forEach(link => {
