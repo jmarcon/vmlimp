@@ -78,45 +78,43 @@ function getPreferredTheme() {
 }
 
 // Inicializa o tema ao carregar a página
-document.addEventListener('DOMContentLoaded', () => {
-    const theme = getPreferredTheme();
-    applyTheme(theme);
+const theme = getPreferredTheme();
+applyTheme(theme);
 
-    document.getElementById('theme-toggle').addEventListener('click', () => {
-        const current = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-        const next = current === 'dark' ? 'light' : 'dark';
-        localStorage.setItem('theme', next);
-        applyTheme(next);
-    });
-
-    // Scroll suave
-    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-        link.addEventListener('click', scrollToSection);
-    });
-
-    // Destaque de menu ativo
-    const sections = document.querySelectorAll('main section[id]');
-    const navLinks = document.querySelectorAll('nav a[href^="#"]');
-
-    function highlightMenu() {
-        let scrollPos = window.scrollY + 120;
-        let currentId = '';
-        sections.forEach(section => {
-            if (scrollPos >= section.offsetTop) {
-                currentId = section.id;
-            }
-        });
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === `#${currentId}`) {
-                link.classList.add('menu-ativo');
-            } else {
-                link.classList.remove('menu-ativo');
-            }
-        });
-    }
-    window.addEventListener('scroll', highlightMenu);
-    highlightMenu();
+document.getElementById('theme-toggle').addEventListener('click', () => {
+    const current = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    applyTheme(next);
 });
+
+// Scroll suave
+document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+    link.addEventListener('click', scrollToSection);
+});
+
+// Destaque de menu ativo
+const sections = document.querySelectorAll('main section[id]');
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+function highlightMenu() {
+    let scrollPos = window.scrollY + 120;
+    let currentId = '';
+    sections.forEach(section => {
+        if (scrollPos >= section.offsetTop) {
+            currentId = section.id;
+        }
+    });
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === `#${currentId}`) {
+            link.classList.add('menu-ativo');
+        } else {
+            link.classList.remove('menu-ativo');
+        }
+    });
+}
+window.addEventListener('scroll', highlightMenu);
+highlightMenu();
 
 // Scroll suave para navegação interna
 function scrollToSection(event) {
