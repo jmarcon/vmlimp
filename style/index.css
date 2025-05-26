@@ -3,7 +3,8 @@
     --color-text: #0a2240;
     --color-primary: #1976d2;
     --color-secondary: #a7c9f3;
-    --color-navbar: #a7c9f3;
+    --color-navbar: #ccdcf0;
+    --color-navbar-rgb: 204, 220, 240;
     --color-navbar-link: #0a2240;
     --color-navbar-link-hover: #1976d2;
 }
@@ -14,6 +15,7 @@
     --color-primary: #4fc3f7;
     --color-secondary: #1a2636;
     --color-navbar: #1a2636;
+    --color-navbar-rgb: 26, 38, 54;
     --color-navbar-link: #e3eafc;
     --color-navbar-link-hover: #4fc3f7;
 }
@@ -150,10 +152,6 @@ body {
     color: #4fc3f7 !important;
 }
 
-.dark .bg-branco {
-    background: #1a2636 !important;
-}
-
 .dark .bg-azul {
     background: #232f47 !important;
 }
@@ -200,19 +198,21 @@ p {
     box-sizing: border-box;
 }
 
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 1.5rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.navbar-logo img {
+    height: 6.75rem;
+    width: auto;
+    padding: 0.75rem;
 }
 
-.navbar-logo img {
-    height: 48px;
-    width: auto;
+.dark .navbar-logo img {
+    background-image: linear-gradient(
+            to right,
+            rgba(227, 234, 252, 0) 1%,
+            rgba(227, 234, 252, 0.9) 5%,
+            rgba(227, 234, 252, 0.9) 95%,
+            rgba(227, 234, 252, 0) 99%
+    );
+    opacity: 0.8;
 }
 
 .navbar-menu {
@@ -534,6 +534,7 @@ footer .fas {
     left: 0;
     width: 100%;
     z-index: 1000;
+    max-height: 6.875rem;
     background: var(--color-navbar);
     transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
@@ -541,9 +542,9 @@ footer .fas {
 }
 
 .navbar-scrolled {
-    background: rgba(25, 118, 210, 0.75);
+    background-color: rgba(var(--color-navbar-rgb), 0.8);
     /* azul semi-transparente */
-    backdrop-filter: blur(8px) saturate(1.2);
+    backdrop-filter: blur(8px) saturate(0.2);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
 }
 
@@ -552,7 +553,7 @@ footer .fas {
 }
 
 .dark .navbar-scrolled {
-    background: rgba(26, 38, 54, 0.82);
+    background-color: rgba(var(--color-navbar-rgb), 0.8);
     backdrop-filter: blur(10px) saturate(1.2);
 }
 
@@ -566,7 +567,7 @@ footer .fas {
 }
 
 .hero-section {
-    margin-top: 80px;
+    margin-top: 110px;
     position: relative;
     overflow: hidden;
     min-height: 420px;
@@ -599,7 +600,7 @@ footer .fas {
 
 @media (max-width: 768px) {
     .hero-section {
-        margin-top: 64px;
+        margin-top: 110px;
         min-height: 320px;
     }
 
