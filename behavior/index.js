@@ -181,3 +181,80 @@ if (contatoForm) {
         }, 1200);
     });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Monta o link do WhatsApp
+    var waNumber = "(17) 99604-8367";
+    var wa = "5517996048367";
+    var waMsg = "Ol%C3%A1%2C%20vi%20seu%20site%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20de%20limpeza";
+    var waLink = "https://wa.me/" + wa + "?text=" + waMsg;
+    var waElem = document.getElementById("whatsapp-link");
+    if (waElem) {
+        waElem.setAttribute("href", waLink);
+        waElem.setAttribute("rel", "nofollow noopener noreferrer");
+        waElem.setAttribute("target", "_blank");
+    }
+
+    // Monta o link de telefone
+    var telNumber = "(17) 99604-8367";
+    var tel = "17996048367";
+    var telLink = "tel:" + tel;
+    var telElem = document.getElementById("phone-link");
+    if (telElem) {
+        telElem.setAttribute("href", telLink);
+        telElem.setAttribute("rel", "nofollow");
+    }
+
+    // Monta o link de email
+    var emailUser = "vmlimp.riopreto";
+    var emailDomain = "gmail.com";
+    var email = emailUser + "@" + emailDomain;
+    var emailLink = "mailto:" + email;
+    var emailElem = document.getElementById("email-link");
+    var emailTextElem = document.getElementById("email-text");
+    if (emailElem && emailTextElem) {
+        emailElem.setAttribute("href", emailLink);
+        emailElem.setAttribute("rel", "nofollow");
+        emailTextElem.textContent = email;
+    }
+
+    // Formulário para WhatsApp
+    var form = document.getElementById("contato-form");
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var nome = document.getElementById("nome").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var mensagem = document.getElementById("mensagem").value.trim();
+
+            var texto = `Olá, gostaria de entrar em contato!%0A%0A*Nome:* ${nome}%0A*E-mail:* ${email}%0A*Mensagem:* ${mensagem}`;
+            var wa = "5517996048367";
+            var waLink = `https://wa.me/${wa}?text=${texto}`;
+
+            window.open(waLink, "_blank");
+        });
+    }
+
+    // Atualiza o ano no rodapé
+    var anoAtual = new Date().getFullYear();
+    var anoElem = document.getElementById("ano-atual");
+    if (anoElem) {
+        anoElem.textContent = anoAtual;
+    }
+});
+
+
+// Aplica o tema antes de carregar o CSS para evitar flash incorreto
+(function () {
+    try {
+        var theme = localStorage.getItem('theme');
+        if (!theme) {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    } catch (e) { }
+})();
